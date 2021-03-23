@@ -3,7 +3,7 @@ plugins {
     id 'java'
 }
 
-mainClassName = 'com.adibuda.bot.Main'
+mainClassName = 'com.electriccapital.Main'
 
 version '1.0'
 def jdaVersion = '4.2.0_168'
@@ -16,6 +16,9 @@ repositories {
 
 dependencies {
     compile "net.dv8tion:JDA:$jdaVersion"
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.22.RELEASE'
+    compile group: 'org.xerial', name:'sqlite-jdbc', version: '3.34.0'
 }
 
 compileJava.options.encoding = 'UTF-8'
