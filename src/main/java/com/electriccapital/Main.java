@@ -3,6 +3,7 @@ package com.electriccapital;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import org.apache.log4j.*;
 
 import javax.security.auth.login.LoginException;
 import java.io.*;
@@ -19,6 +20,7 @@ public class Main {
      * @throws FileNotFoundException
      */
     public static void main(String[] args) throws LoginException, SQLException, FileNotFoundException {
+        BasicConfigurator.configure();
         Scanner sc = new Scanner(new File("src/main/java/com/electriccapital/token.txt"));
         String token = sc.nextLine();
         System.out.println(token);

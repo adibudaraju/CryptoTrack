@@ -6,15 +6,14 @@ package com.electriccapital;
  */
 
 import net.dv8tion.jda.api.entities.*;
+import org.slf4j.*;
 import org.springframework.jdbc.support.*;
 
 import java.sql.*;
 import java.sql.Date;
-import java.util.*;
-import java.util.logging.*;
 
 public class DBUtils{
-    private static final Logger LOGGER = Logger.getLogger("DBUtils");
+    private static final Logger LOGGER = LoggerFactory.getLogger(DBUtils.class);
 
     /**
      * Utility method to get a results set from a String query.
@@ -56,7 +55,7 @@ public class DBUtils{
      * @param e
      */
     public static void logError(Exception e){
-        System.out.println("Couldn't execute query!");
+        LOGGER.error("Couldn't execute query!", e);
         e.printStackTrace();
     }
 
@@ -110,11 +109,10 @@ public class DBUtils{
         Connection conn;
         try {
             Class.forName("org.sqlite.JDBC");
-            conn = DriverManager.getConnection("jdbc:sqlite:/Users/sivakumarbudaraju/CryptoTrack/src/main/java/com/electriccapital/activity.db");
+            conn = DriverManager.getConnection("jdbc:sqlite:src/main/java/com/electriccapital/activity.db");
         } catch (Exception e) {
             conn = null;
-            e.printStackTrace();
-            System.out.println("COULDN'T CONNECT TO DATABASE");
+            LOGGER.error("Couldn't connect to database", e);
         }
         return conn;
     }
