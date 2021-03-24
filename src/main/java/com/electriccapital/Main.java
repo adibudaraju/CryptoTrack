@@ -21,6 +21,7 @@ public class Main {
      */
     public static void main(String[] args) throws LoginException, SQLException, FileNotFoundException {
         BasicConfigurator.configure();
+        // token file
         Scanner sc = new Scanner(new File("src/main/java/com/electriccapital/token.txt"));
         String token = sc.nextLine();
         System.out.println(token);

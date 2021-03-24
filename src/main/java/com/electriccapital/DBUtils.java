@@ -109,6 +109,7 @@ public class DBUtils{
         Connection conn;
         try {
             Class.forName("org.sqlite.JDBC");
+            // Currently getting connection to a local SQLite database - when scaling, can change this connection.
             conn = DriverManager.getConnection("jdbc:sqlite:src/main/java/com/electriccapital/activity.db");
         } catch (Exception e) {
             conn = null;
